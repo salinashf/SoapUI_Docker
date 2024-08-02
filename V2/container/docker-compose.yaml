@@ -1,0 +1,15 @@
+services:
+  mocks_server:
+    container_name: pry_mock_sri
+    image: "soapui.mock:2.0"
+    environment:
+      MOCK_BIN: "mockservicerunner.sh"
+      PROJECT_FOLDER: "/opt/soapui/projects" 
+      MOCKSERVICE_PORT: "2022" 
+      MOCKSERVICE_NAME: "MockServiceCM" 
+      PROJECT_FILE: "PryConsultaSRI.xml" 
+    ports:
+      - "2022:2022"
+    volumes:
+      - "../project/:/opt/soapui/projects/"
+
