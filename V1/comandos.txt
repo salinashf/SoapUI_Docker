@@ -1,0 +1,11 @@
+docker build -t soapui.mock:1.0 .
+docker image ls
+docker-compose   up -d
+docker-compose down
+docker container rm  pry_mock_sri
+docker save soapui.mock:1.0 > soapui_mock.tar
+docker restart pry_mock_sri
+docker exec -ti pry_mock_sri /bin/bash
+docker exec -it pry_mock_sri ls
+docker exec -it pry_mock_sri more "/opt/soapui/projects/PryConsultaSRI.xml"
+docker exec -it pry_mock_sri ls "/opt/soapui/projects/"

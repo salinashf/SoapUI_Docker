@@ -1,0 +1,9 @@
+services:
+  mocks_server:
+    container_name: pry_mock_sri
+    image: 'soapui.mock:1.0'
+    ports:
+      - '8089:8089'
+    volumes:
+      - '../project/:/opt/soapui/projects/'
+    command: '-m "MockServiceCM" -p "8089" /opt/soapui/projects/PryConsultaSRI.xml'
